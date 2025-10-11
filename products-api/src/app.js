@@ -23,6 +23,8 @@ app.get("/db/health", async (_req, res) => {
 
 // --- CRUD PRODUCTS ---
 
+//hola
+
 // Crear producto (valida user contra users-api)
 app.post("/products", async (req, res) => {
   const { name, price, userId } = req.body ?? {};
