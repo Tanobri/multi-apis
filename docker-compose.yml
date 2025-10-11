@@ -3,22 +3,21 @@ version: "3.9"
 services:
   users-api:
     build: ./users-api
-    container_name: users-api
     environment:
       - PORT=4001
       - SERVICE_NAME=users-api
+      - USERS_DATABASE_URL=${USERS_DATABASE_URL}
     ports:
       - "4001:4001"
     restart: unless-stopped
 
   products-api:
     build: ./products-api
-    container_name: products-api
     environment:
       - PORT=4002
       - SERVICE_NAME=products-api
-      # Compose resuelve por nombre de servicio: http://users-api:4001
       - USERS_API_URL=http://users-api:4001
+      - PRODUCTS_DATABASE_URL=${PRODUCTS_DATABASE_URL}
     ports:
       - "4002:4002"
     depends_on:

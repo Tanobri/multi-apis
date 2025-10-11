@@ -6,6 +6,6 @@ COPY package*.json ./
 RUN npm ci --omit=dev
 
 COPY src ./src
-EXPOSE 4001
-ENV PORT=4001 SERVICE_NAME=users-api
+
+ENV SERVICE_NAME=users-api
 CMD ["node", "src/app.js"]
