@@ -7,6 +7,7 @@ RUN npm ci --omit=dev
 
 COPY src ./src
 
+EXPOSE 4002
 
 ENV SERVICE_NAME=products-api
 CMD ["node", "src/app.js"]
