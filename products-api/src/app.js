@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";               // si usas Node 20 también tienes global fetch
 import { pool } from "./db.js";
+import { getCosmosContainer } from "./db.cosmos.js";
 
 const app = express();
 app.use(cors());
@@ -23,7 +24,16 @@ app.get("/db/health", async (_req, res) => {
 
 // --- CRUD PRODUCTS ---
 
-//hola
+app.get("/cosmos/health", async (_req, res) => {
+  try {
+    const container = await getCosmosContainer();
+    const { resources } = await container.items.query("SELECT VALUE 1").fetchNext();
+    res.json({ ok: resources?.[0] === 1 });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: String(e) });
+  }
+});
+
 
 // Crear producto (valida user contra users-api)
 app.post("/products", async (req, res) => {
