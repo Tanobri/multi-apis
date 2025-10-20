@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 4002;
 const USERS_API_URL = process.env.USERS_API_URL || "http://users-api:4001";
 
 /* -------------------------------------------------------
-   HEALTHS
+   HEALTHS hola hola hola 
 -------------------------------------------------------- */
 app.get("/health", (_req, res) =>
   res.json({ status: "ok", service: "products-api", backend: USE_COSMOS ? "cosmos" : "postgres" })
