@@ -311,7 +311,7 @@ if (!USE_COSMOS) {
     }
   });
 
-  // Delete
+  // Delete hola
   app.delete("/products/:id", async (req, res) => {
     const { id } = req.params;
     try {
