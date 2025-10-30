@@ -226,7 +226,7 @@ if (USE_COSMOS) {
 }
 
 /* -------------------------------------------------------
-   POSTGRES: CRUD /products  (solo si NO usamos Cosmos)
+   POSTGRES: CRUD /products  (solo si NO usamos Cosmos) me amo enserio
 -------------------------------------------------------- */
 if (!USE_COSMOS) {
   // Crear producto (valida user contra users-api)
